@@ -1,12 +1,24 @@
 name: automatically-check-broken-links
-comment: >
-  also trigger when when document rearranged or document location updated
+
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
+    # * Runs at 8 am PST on Tuesdays
     - cron:  '0 8 * * 2'
-
-
-Comment: >
-    jobs:
-    permissions:
+permissions:
+  contents: read
+  issues: write 
+jobs:
+  permissions: 
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+        uses: actions/checkout@master
+        with:
+          submodules: recursive
+      - name: Run link check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'no'
+          use-verbose-mode: 'yes'
+          check-modified-files-only: 'yes'
