@@ -1,0 +1,12 @@
+name: automatically-check-broken-links
+comment: >
+  also trigger when when document rearranged or document location updated
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 8 * * 2'
+
+
+Comment: >
+    jobs:
+    permissions:
