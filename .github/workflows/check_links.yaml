@@ -21,4 +21,4 @@ jobs:
         use-quiet-mode: 'no'
         use-verbose-mode: 'yes'
         check-modified-files-only: 'yes'
-        
+        if: github.event.inputs.failJob == 'true'
