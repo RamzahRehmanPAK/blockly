@@ -31,7 +31,7 @@ jobs:
         with:
           submodules: recursive
       - name: Create issue
-      - uses: JasonEtco/create-an-issue@master
+        uses: JasonEtco/create-an-issue@master
         if: ${{ success() && steps.last_status.outputs.last_status == 'failure' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
