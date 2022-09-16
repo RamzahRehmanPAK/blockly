@@ -21,4 +21,17 @@ jobs:
         use-quiet-mode: 'no'
         use-verbose-mode: 'yes'
         check-modified-files-only: 'yes'
-        if: github.event.inputs.failJob == 'true'
+      id: last_status
+
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mater again
+        uses: actions/checkout@master
+        with:
+          submodules: recursive
+      - name: Create issue
+      - uses: JasonEtco/create-an-issue@master
+        if: ${{ success() && steps.last_status.outputs.last_status == 'failure' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
