@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout mater 
-        uses: actions/checkout@master
-        with:
-          submodules: recursive
+      uses: actions/checkout@master
+      with:
+        submodules: recursive
     - name: Run link check
       uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
