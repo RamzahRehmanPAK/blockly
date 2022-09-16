@@ -1,9 +1,11 @@
 name: automatically-check-broken-links
 
-on:
+comment: >
   schedule:
-    # * Runs at 8 am PST on Tuesdays
-    - cron:  '0 8 * * 2'
+      # * Runs at 8 am PST on Tuesdays
+      - cron:  '0 8 * * 2'
+on:
+  push
 permissions:
   contents: read
   issues: write 
