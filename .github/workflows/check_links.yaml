@@ -4,9 +4,7 @@ on:
   schedule:
     # * Runs at 8 am PST on Tuesdays
     - cron:  '0 8 * * 2'
-permissions:
-  contents: read
-  issues: write 
+    
 jobs:
   permissions: 
   markdown-link-check:
